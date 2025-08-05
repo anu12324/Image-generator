@@ -1,9 +1,11 @@
 import ImageGenerate from './component/ImageGenerate';
+import ImageGenerateLazyLoading from './component/ImageGenerateLazyLoading';
 
 function App() {
   return (
     <div className="App">
-      <ImageGenerate />
+      {/* <ImageGenerate /> */}
+      <ImageGenerateLazyLoading />
     </div>
   );
 }
