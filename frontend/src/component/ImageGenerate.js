@@ -10,8 +10,8 @@ const ImageGenerate = () => {
         if (!prompt) return alert("Please enter a prompt");
 
         try {
-            
-            const response = await axios.post('https://image-generator-backend-6ryv.onrender.com', { prompt });
+            // const response = await axios.post('http://localhost:5000/api/generate-image', { prompt });
+            const response = await axios.post('https://image-generator-backend-6ryv.onrender.com/api/generate-image', { prompt });
             setImageUrl(response.data.imageUrl);
             console.log(`The response is : ${response.data.imageUrl}`);
         } catch (error) {

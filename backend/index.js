@@ -3,21 +3,22 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(bodyParser.json());
 
-// Mock image generation API
+app.get('/', (req, res) => {
+    res.send('Image Generator Backend is running.');
+});
+
+// Image generation API
 app.post('/api/generate-image', (req, res) => {
     const { prompt } = req.body;
-
-    // Generate a random image from Picsum
     const width = 400;
     const height = 300;
     const randomId = Math.floor(Math.random() * 1000);
     const imageUrl = `https://picsum.photos/seed/${encodeURIComponent(prompt + randomId)}/${width}/${height}`;
-
     res.json({ imageUrl });
 });
 
